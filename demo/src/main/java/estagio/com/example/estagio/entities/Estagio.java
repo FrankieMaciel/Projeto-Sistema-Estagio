@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -20,5 +20,14 @@ public class Estagio implements Serializable {
   private String inicio;
   private String fim;
   private Status status;
+
+  @OneToOne
+  private Aluno aluno = new Aluno();
+
+  @OneToOne
+  private Orientador orientador = new Orientador();
+
+  @OneToOne
+  private Empresa empresa = new Empresa();
 
 }

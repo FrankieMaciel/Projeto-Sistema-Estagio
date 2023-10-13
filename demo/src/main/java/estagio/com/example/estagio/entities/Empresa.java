@@ -19,8 +19,8 @@ public class Empresa implements Serializable {
     private Long id;
     private String name;
 
-    // @OneToMany(mappedBy = "Empresa")
-    // private List<Aluno> alunos = new ArrayList<>();
+    @OneToMany(mappedBy = "empresa")
+    private List<Aluno> alunos = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -38,7 +38,7 @@ public class Empresa implements Serializable {
         this.name = name;
     }
 
-    // public List<Aluno> getFuncionarios() {
-    //     return alunos;
-    // }
+    public List<Aluno> getFuncionarios() {
+        return alunos;
+    }
 }

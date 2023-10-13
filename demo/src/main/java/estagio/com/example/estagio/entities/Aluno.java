@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-//import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -18,6 +18,12 @@ public class Aluno implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long matricula;
     private String name;
+
+    @ManyToOne
+    private Empresa empresa = new Empresa();
+
+    @ManyToOne
+    private Orientador orientador = new Orientador();
 
     public Long getId() {
         return matricula;

@@ -30,4 +30,8 @@ public class Estagio implements Serializable {
   @OneToOne
   private Empresa empresa = new Empresa();
 
+  public Status getStatus() {
+    return this.status;
+  }
+
 }

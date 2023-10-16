@@ -3,6 +3,8 @@ package estagio.com.example.estagio.entities;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,16 +21,18 @@ public class Estagio implements Serializable {
   private int cargaHoraria;
   private String inicio;
   private String fim;
+
+  @Enumerated(EnumType.STRING)
   private Status status;
 
-  @OneToOne(mappedBy = "estagio")
-  private Aluno aluno = new Aluno();
+  @OneToOne
+  private Aluno aluno;
 
-  @OneToOne(mappedBy = "estagio")
-  private Orientador orientador = new Orientador();
+  @OneToOne
+  private Orientador orientador;
 
-  @OneToOne(mappedBy = "estagio")
-  private Empresa empresa = new Empresa();
+  @OneToOne
+  private Empresa empresa;
 
   public Aluno getAluno() {
     return this.aluno;

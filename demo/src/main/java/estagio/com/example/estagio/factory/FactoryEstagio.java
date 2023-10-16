@@ -25,31 +25,45 @@ public class FactoryEstagio {
         EntityManager manager = factory.createEntityManager();
 
         // ------------ | INSERÇÃO | ------------
-        manager.getTransaction().begin();
-        Estagio estagio = new Estagio();
-        Aluno aluno = new Aluno();
-        Empresa empresa = new Empresa();
-        Orientador orientador = new Orientador();
+        // manager.getTransaction().begin();
+        // Estagio estagio = new Estagio();
 
-        estagio.setAluno(aluno);
-        estagio.setEmpresa(empresa);
-        estagio.setOrientador(orientador);
-        estagio.setCargaHoraria(150);
-        estagio.setInicio("13/02/2023");
-        estagio.setFim("13/05/2023");
-        estagio.setStatus(Status.EM_ANDAMENTO);
+        // estagio.setCargaHoraria(150);
+        // estagio.setInicio("13/02/2023");
+        // estagio.setFim("13/05/2023");
+        // estagio.setStatus(Status.EM_ANDAMENTO);
+
+        // manager.persist(estagio);
+        // manager.getTransaction().commit();
+        // manager.close();
+
+        // ------------ | ATUALIZAÇÃO | ------------
+        manager.getTransaction().begin();
+        Estagio estagio = manager.find(Estagio.class, 1L);
+
+        estagio.setStatus(Status.FINALIZADO);
+
+        Query query1 = manager.createQuery("FROM Empresa d WHERE d.name = :name");
+        query1.setParameter("name", "Empresa2");
+        Empresa emp = (Empresa) query1.getSingleResult();
+
+        estagio.setEmpresa(emp);
+
+        Query query2 = manager.createQuery("FROM Orientador d WHERE d.name = :name");
+        query2.setParameter("name", "Orientador1");
+        Orientador ori = (Orientador) query2.getSingleResult();
+
+        estagio.setOrientador(ori);
+
+        Query query3 = manager.createQuery("FROM Aluno d WHERE d.name = :name");
+        query3.setParameter("name", "Aluno1");
+        Aluno alu = (Aluno) query3.getSingleResult();
+
+        estagio.setAluno(alu);
 
         manager.persist(estagio);
         manager.getTransaction().commit();
         manager.close();
-
-        // ------------ | ATUALIZAÇÃO | ------------
-        // manager.getTransaction().begin();
-        // Estagio estagio = manager.find(Estagio.class, 2L);
-        // estagio.setStatus(Status.FINALIZADO);
-        // manager.persist(estagio);
-        // manager.getTransaction().commit();
-        // manager.close();
 
         // ------------ | REMOÇÃO | ------------
         // manager.getTransaction().begin();

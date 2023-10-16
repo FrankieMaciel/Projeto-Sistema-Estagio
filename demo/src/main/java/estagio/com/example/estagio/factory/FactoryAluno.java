@@ -5,6 +5,7 @@
 package estagio.com.example.estagio.factory;
 
 import estagio.com.example.estagio.entities.Aluno;
+import estagio.com.example.estagio.entities.Empresa;
 //import estagio.com.example.estagio.entities.Estagio;
 import estagio.com.example.estagio.entities.Orientador;
 
@@ -33,8 +34,21 @@ public class FactoryAluno {
 
         // ------------ | ATUALIZAÇÃO | ------------
         // manager.getTransaction().begin();
-        // Aluno aluno = manager.find(Aluno.class, 2L);
-        // aluno.setName("AlunoTrocado");
+        // Aluno aluno = manager.find(Aluno.class, 7L);
+        // // aluno.setName("AlunoTrocado");
+
+        // Query query1 = manager.createQuery("FROM Empresa d WHERE d.name = :name");
+        // query1.setParameter("name", "Empresa2");
+        // Empresa emp = (Empresa) query1.getSingleResult();
+
+        // aluno.setEmpresa(emp);
+
+        // Query query2 = manager.createQuery("FROM Orientador d WHERE d.name = :name");
+        // query2.setParameter("name", "Orientador1");
+        // Orientador ori = (Orientador) query2.getSingleResult();
+
+        // aluno.setOrientador(ori);
+
         // manager.persist(aluno);
         // manager.getTransaction().commit();
         // manager.close();
@@ -76,21 +90,21 @@ public class FactoryAluno {
         // }
 
         // ------------ PESQUISAR ALUNOS POR EMPRESA ------------
-        manager.getTransaction().begin();
+        // manager.getTransaction().begin();
 
-        Query query1 = manager.createQuery("FROM Aluno d WHERE d.name = :name");
-        query1.setParameter("name", "NomeAluno");
-        Aluno emp = (Aluno) query1.getSingleResult();
+        // Query query1 = manager.createQuery("FROM Aluno d WHERE d.name = :name");
+        // query1.setParameter("name", "NomeAluno");
+        // Aluno emp = (Aluno) query1.getSingleResult();
 
-        Query query = manager.createQuery("FROM Aluno e WHERE e.Aluno = :id");
-        query.setParameter("id", emp.getId());
-        List<Aluno> alunos = query.getResultList();
+        // Query query = manager.createQuery("FROM Aluno e WHERE e.Aluno = :id");
+        // query.setParameter("id", emp.getId());
+        // List<Aluno> alunos = query.getResultList();
 
-        manager.getTransaction().commit();
-        manager.close();
+        // manager.getTransaction().commit();
+        // manager.close();
 
-        for (Aluno a : alunos) {
-            System.out.println("Nome: " + a.getName());
-        }
+        // for (Aluno a : alunos) {
+        //     System.out.println("Nome: " + a.getName());
+        // }
     }
 }

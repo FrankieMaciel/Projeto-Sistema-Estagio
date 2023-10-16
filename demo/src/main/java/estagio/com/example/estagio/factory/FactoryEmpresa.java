@@ -26,7 +26,7 @@ public class FactoryEmpresa {
         // ------------ | INSERÇÃO | ------------
         // manager.getTransaction().begin();
         // Empresa jpa = new Empresa();
-        // jpa.setName("Empresa1");
+        // jpa.setName("Empresa4");
 
         // manager.persist(jpa);
         // manager.getTransaction().commit();
@@ -34,9 +34,9 @@ public class FactoryEmpresa {
 
         // ------------ | ATUALIZAÇÃO | ------------
         // manager.getTransaction().begin();
-        // Empresa empresa = manager.find(Empresa.class, 2L);
-        // empresa.setName("NovaEmpresa");
-        // manager.persist(jpa);
+        // Empresa empresa = manager.find(Empresa.class, 3L);
+        // empresa.setName("Empresa3");
+        // manager.persist(empresa);
         // manager.getTransaction().commit();
         // manager.close();
 

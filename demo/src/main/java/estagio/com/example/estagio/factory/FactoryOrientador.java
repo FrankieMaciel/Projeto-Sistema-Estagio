@@ -24,13 +24,13 @@ public class FactoryOrientador {
         EntityManager manager = factory.createEntityManager();
 
         // ------------ | INSERÇÃO | ------------
-        // manager.getTransaction().begin();
-        // Orientador orientador = new Orientador();
-        // orientador.setName("Orientador1");
+        manager.getTransaction().begin();
+        Orientador orientador = new Orientador();
+        orientador.setName("Orientador3");
 
-        // manager.persist(orientador);
-        // manager.getTransaction().commit();
-        // manager.close();
+        manager.persist(orientador);
+        manager.getTransaction().commit();
+        manager.close();
 
         // ------------ | ATUALIZAÇÃO | ------------
         // manager.getTransaction().begin();

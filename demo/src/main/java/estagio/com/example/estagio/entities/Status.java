@@ -1,5 +1,5 @@
 package estagio.com.example.estagio.entities;
 
 public enum Status {
-    EM_ANDAMENTO, FINALIZADO;
+    EM_ANDAMENTO, FINALIZADO, CANCELADO;
 }

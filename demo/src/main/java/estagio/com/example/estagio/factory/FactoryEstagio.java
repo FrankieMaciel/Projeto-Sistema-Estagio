@@ -38,32 +38,32 @@ public class FactoryEstagio {
         // manager.close();
 
         // ------------ | ATUALIZAÇÃO | ------------
-        manager.getTransaction().begin();
-        Estagio estagio = manager.find(Estagio.class, 1L);
+        // manager.getTransaction().begin();
+        // Estagio estagio = manager.find(Estagio.class, 1L);
 
-        estagio.setStatus(Status.FINALIZADO);
+        // estagio.setStatus(Status.FINALIZADO);
 
-        Query query1 = manager.createQuery("FROM Empresa d WHERE d.name = :name");
-        query1.setParameter("name", "Empresa2");
-        Empresa emp = (Empresa) query1.getSingleResult();
+        // Query query1 = manager.createQuery("FROM Empresa d WHERE d.name = :name");
+        // query1.setParameter("name", "Empresa2");
+        // Empresa emp = (Empresa) query1.getSingleResult();
 
-        estagio.setEmpresa(emp);
+        // estagio.setEmpresa(emp);
 
-        Query query2 = manager.createQuery("FROM Orientador d WHERE d.name = :name");
-        query2.setParameter("name", "Orientador1");
-        Orientador ori = (Orientador) query2.getSingleResult();
+        // Query query2 = manager.createQuery("FROM Orientador d WHERE d.name = :name");
+        // query2.setParameter("name", "Orientador1");
+        // Orientador ori = (Orientador) query2.getSingleResult();
 
-        estagio.setOrientador(ori);
+        // estagio.setOrientador(ori);
 
-        Query query3 = manager.createQuery("FROM Aluno d WHERE d.name = :name");
-        query3.setParameter("name", "Aluno1");
-        Aluno alu = (Aluno) query3.getSingleResult();
+        // Query query3 = manager.createQuery("FROM Aluno d WHERE d.name = :name");
+        // query3.setParameter("name", "Aluno1");
+        // Aluno alu = (Aluno) query3.getSingleResult();
 
-        estagio.setAluno(alu);
+        // estagio.setAluno(alu);
 
-        manager.persist(estagio);
-        manager.getTransaction().commit();
-        manager.close();
+        // manager.persist(estagio);
+        // manager.getTransaction().commit();
+        // manager.close();
 
         // ------------ | REMOÇÃO | ------------
         // manager.getTransaction().begin();
@@ -83,22 +83,23 @@ public class FactoryEstagio {
         // manager.close();
 
         // for (Estagio e : estagios) {
-        // System.out.println("Nome: " + e.getStatus());
+        // System.out.println("Status: " + e.getStatus());
+        // System.out.println("Nome do Aluno: " + e.getAluno().getName());
         // }
 
         // ------------ | FILTRAGEM | ------------
         // ------------ PESQUISAR ESTAGIO POR ID ------------
-        // manager.getTransaction().begin();
+        manager.getTransaction().begin();
 
-        // Query query = manager.createQuery("FROM Estagio e WHERE e.id = :id");
-        // query.setParameter("id", 2L);
-        // List<Estagio> Estagios = query.getResultList();
+        Query query = manager.createQuery("FROM Estagio e WHERE e.id = :id");
+        query.setParameter("id", 1L);
+        List<Estagio> Estagios = query.getResultList();
 
-        // manager.getTransaction().commit();
-        // manager.close();
+        manager.getTransaction().commit();
+        manager.close();
 
-        // for (Estagio e : Estagios) {
-        // System.out.println("Nome: " + e.getAluno());
-        // }
+        for (Estagio e : Estagios) {
+        System.out.println("Nome: " + e.getAluno().getName());
+        }
     }
 }

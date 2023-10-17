@@ -24,13 +24,13 @@ public class FactoryOrientador {
         EntityManager manager = factory.createEntityManager();
 
         // ------------ | INSERÇÃO | ------------
-        manager.getTransaction().begin();
-        Orientador orientador = new Orientador();
-        orientador.setName("Orientador3");
+        // manager.getTransaction().begin();
+        // Orientador orientador = new Orientador();
+        // orientador.setName("Orientador3");
 
-        manager.persist(orientador);
-        manager.getTransaction().commit();
-        manager.close();
+        // manager.persist(orientador);
+        // manager.getTransaction().commit();
+        // manager.close();
 
         // ------------ | ATUALIZAÇÃO | ------------
         // manager.getTransaction().begin();
@@ -49,17 +49,17 @@ public class FactoryOrientador {
 
         // ------------ | LISTAGEM | ------------
         // ------------ ORIENTADOR ------------
-        // manager.getTransaction().begin();
+        manager.getTransaction().begin();
 
-        // Query query = manager.createQuery("FROM Orientador");
-        // List<Orientador> orientadores = query.getResultList();
+        Query query = manager.createQuery("FROM Orientador");
+        List<Orientador> orientadores = query.getResultList();
 
-        // manager.getTransaction().commit();
-        // manager.close();
+        manager.getTransaction().commit();
+        manager.close();
 
-        // for (Orientador o : orientadores) {
-        // System.out.println("Nome: " + o.getName());
-        // }
+        for (Orientador o : orientadores) {
+        System.out.println("Nome: " + o.getName());
+        }
 
         // ------------ | FILTRAGEM | ------------
         // ------------ PESQUISAR EMPRESA POR ID ------------
